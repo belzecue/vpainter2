@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://o2o5o4oiself"]
+
+[ext_resource type="Script" uid="uid://b56l8l7clvnko" path="res://addons/vpainter/res/brush_cursor/brush_cursor.gd" id="2_mhe0t"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7rgx8"]
+top_radius = 0.25
+bottom_radius = 0.371063
+height = 0.001
+rings = 0
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwvgv"]
+transparency = 1
+blend_mode = 3
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(0.695503, 0.695503, 0.695503, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mnj8d"]
+flip_faces = true
+top_radius = 0.371063
+bottom_radius = 0.371063
+height = 0.001
+cap_top = false
+cap_bottom = false
+
+[node name="Spatial" type="MeshInstance3D"]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
+script = ExtResource("2_mhe0t")
+size_mesh_dir = NodePath("Size")
+hardness_mesh_dir = NodePath("Hardness")
+
+[node name="Size" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+mesh = SubResource("CylinderMesh_7rgx8")
+surface_material_override/0 = SubResource("StandardMaterial3D_pwvgv")
+
+[node name="Hardness" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+mesh = SubResource("CylinderMesh_mnj8d")
+surface_material_override/0 = SubResource("StandardMaterial3D_pwvgv")
