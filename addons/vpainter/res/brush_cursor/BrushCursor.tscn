@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://o2o5o4oiself"]
 
-[ext_resource type="Script" uid="uid://b56l8l7clvnko" path="res://addons/vpainter/res/brush_cursor/brush_cursor.gd" id="2_mhe0t"]
+[ext_resource type="Script" uid="uid://b11ievsl6xoel" path="res://addons/vpainter/res/brush_cursor/brush_cursor.gd" id="2_mhe0t"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_7rgx8"]
 top_radius = 0.25
@@ -13,7 +13,6 @@ cap_bottom = false
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwvgv"]
 transparency = 1
 blend_mode = 3
-no_depth_test = true
 shading_mode = 0
 albedo_color = Color(0.695503, 0.695503, 0.695503, 1)
 
