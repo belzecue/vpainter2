@@ -40,7 +40,7 @@ Tools are standard:
 
 ![image](https://github.com/user-attachments/assets/6f1805f4-6a64-4338-bbe9-44edf1d380de)
 
-Color channels. Handy to set pure color channels for texture blending. W is white, which is just RGBA set to 1.0. If you want to paint only alpha channel, check it and press `Ctrl` to surtract alpha from the mesh, by default the alpha is set to 1.0. For the precise color you need use color picker.
+Color channels. Handy to set pure color channels for texture blending. W is white, which is just RGBA set to 1.0. If you want to paint only alpha channel, check it and press `Ctrl` to surtract alpha from the mesh, by default the alpha is set to 1.0. For the precise color you need - use color picker.
 
 
 ![image](https://github.com/user-attachments/assets/e5c59c0b-a387-41f8-ac68-ee9979e971a9)
