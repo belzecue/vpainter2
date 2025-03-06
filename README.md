@@ -35,7 +35,7 @@ By default the tool will save all changes into the original resource when the sc
 Tools are standard: 
 1. Brush tool - select the color you need and start painting. If your mesh doesn't have any vertex colors on import, plugin automatically sets black color as a base.
 2. Color picker - picks the color and alpha from the mesh. If you're using plugin for texture blending - very useful to pick exactly the kind of blending you need and spread it around the mesh with the brush.
-3. Displace tool - adjusts the position of vertices, useful if you're painting something snow or sand on top of a surface and want to give that some thickness (use carefully and with light hardness).
+3. Displace tool - adjusts the position of vertices, useful if you're painting something similar to snow or sand on top of a surface and want to give that some thickness (use carefully and with light hardness).
 4. Bucket tool - Fills the mesh with chosen color. Set light opacity to fill gradually.
 
 
