@@ -53,6 +53,8 @@ Pressure settings are useful only to tablet users. Make sure to enable the corre
 The plugin currently only has single undo feature. It is fake and doesn't use the editors undo manager, but instead saves current state of the mesh into a variable and sets it back if needed. Useful if you made a mistake such as filling the mesh with color you didn't want, or displacing the vertices to much.
 
 ## Troubleshooting
+To hide transform gizmo on a node so it doesn't get in your way whilst painting, lock the node by pressing the Lock icon and reselect the node in scene tree.
+
 If you see UID warnings in the output. Disable the plugin in the Project settings, Save All Scenes and Reload current project. 
 
 If you don't see Alpha on your mesh double check that you have transparency enabled in the material.
