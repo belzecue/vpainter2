@@ -39,4 +39,7 @@ Tools are standard:
 Color channels. Handy to set pure color channels for texture blending. W is white, which is just RGBA set to 1.0. If you want to paint only alpha channel, check it and press `Ctrl` to surtract alpha from the mesh, by default the alpha is set to 1.0. For the precise color you need use color picker.
 
 ![image](https://github.com/user-attachments/assets/e5c59c0b-a387-41f8-ac68-ee9979e971a9)
-Pressure settings are useful only to tablet users. Make sure to enable the correct driver in Project settings > Pen Tablet section for pressure to work. If you can't find that setting enble Advanced settings.
+Pressure settings are useful only to tablet users. Make sure to enable the correct driver in `Project settings > Pen Tablet` section for pressure to work. If you can't find that setting enble Advanced settings.
+
+![image](https://github.com/user-attachments/assets/8b93f701-78c2-4ad2-8657-b14593a7faf7)
+The plugin currently only has single undo feature. It is fake and doesn't use the editors undo manager, but instead saves current state of the mesh into a variable and sets it back if needed. Useful if you made a mistake such as filling the mesh with color you didn't want, or displacing the vertices to much.
