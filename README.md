@@ -58,7 +58,7 @@ If you see UID warnings in the output. Disable the plugin in the Project setting
 
 If you don't see Alpha on your mesh double check that you have transparency enabled in the material.
 
-If the color you paint doesn't look like the color you choose in the color picker, make sure you checked sRGB color space in the material's Vertex color section.
+If the color you paint doesn't look like the color you choose in the color picker, make sure you checked sRGB color space in the material's Vertex color section. In this case the colors painted are actully correct, they just displayed in a different color space. Does not affect texture blending.
 
 Shaders provided with the plugin were not made or tested by me for compatibility with this version of the plugin.
 
