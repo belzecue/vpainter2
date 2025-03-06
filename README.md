@@ -18,7 +18,7 @@ Plugin does not work with built-in meshes, only with imported from outside. Howe
 ## Hotkeys
 `Ctrl` - switches subtract mode. Useful for easy paint/erase switching.
 
-`[ ]` - Changes brush size with increments of 0.05. Can be ajusted in the script.
+`[ ]` - Changes brush size with increments of 0.05. Can be adjusted in the script.
 
 `'\` - Changes brush hardness/softness. Might be different on your keybord depending on your region, but these keys are right under square brackets `[ ]`
 
