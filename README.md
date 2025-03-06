@@ -5,7 +5,7 @@ Vertex painter for Godot 4.3 and 4.4
 Based on Vpainter v0.5 by https://github.com/tomankirilov/VPainter
 and v1.0 by https://github.com/nx7r/Vpainter
 
-# Installation instructions
+## Installation instructions
 1. Copy addons folder into your project folder.
 2. Open the project settings and activate the plugin in Plugins section.
 3. Open test scene or import your own mesh and drag it into a 3d scene.
@@ -15,9 +15,11 @@ Things to note:
 The button only appears when a valid mesh is selected (type MeshInstance3D).
 Plugin does not work with built-in meshes, only with imported from outside.
 
-# Hotkeys
-Ctrl - switches subtract mode. Useful for easy paint/erase switching.
-[ ] - Changes brush size with increments of 0.05. Can be ajusted in the script.
-'\ - Changes brush hardness/softness. Might be different on your keybord depending on your region, but these keys are right under square brackets [ ]
+## Hotkeys
+`Ctrl` - switches subtract mode. Useful for easy paint/erase switching.
+
+`[ ]` - Changes brush size with increments of 0.05. Can be ajusted in the script.
+
+`'\` - Changes brush hardness/softness. Might be different on your keybord depending on your region, but these keys are right under square brackets `[ ]`
 
 More information for tools and features will come later. Any critical bugs - open an issue case.
