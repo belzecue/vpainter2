@@ -13,7 +13,7 @@ and v1.0 by https://github.com/nx7r/Vpainter
 
 Things to note:
 The button only appears when a valid mesh is selected (type MeshInstance3D).
-Plugin does not work with built-in meshes, only with imported from outside.
+Plugin does not work with built-in meshes, only with imported from outside. However the built-in meshes can be exported and reimported back as a resource, for painting. Basically any mesh needs to go through Godot's mesh importer for the plugin to work.
 
 ## Hotkeys
 `Ctrl` - switches subtract mode. Useful for easy paint/erase switching.
@@ -52,3 +52,14 @@ Pressure settings are useful only to tablet users. Make sure to enable the corre
 ![image](https://github.com/user-attachments/assets/8b93f701-78c2-4ad2-8657-b14593a7faf7)
 
 The plugin currently only has single undo feature. It is fake and doesn't use the editors undo manager, but instead saves current state of the mesh into a variable and sets it back if needed. Useful if you made a mistake such as filling the mesh with color you didn't want, or displacing the vertices to much.
+
+## Troubleshooting
+If you see UID warnings in the output. Disable the plugin in the Project settings, Save All Scenes and Reload current project. 
+
+If you don't see Alpha on your mesh double check that you have transparency enabled in the material.
+
+If the color you paint doesn't look like the color you choose in the color picker, make sure you checked sRGB color space in the material's Vertex color section.
+
+Shaders provided with the plugin were not made or tested by me for compatibility with this version of the plugin.
+
+There might be some non critical errors as well. 
