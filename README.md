@@ -22,7 +22,6 @@ Plugin does not work with built-in meshes, only with imported from outside. Howe
 
 `'\` - Changes brush hardness/softness. Might be different on your keybord depending on your region, but these keys are right under square brackets `[ ]`
 
-More information for tools and features will come later. Any critical bugs - open an issue case.
 
 ## Usage
 ![image](https://github.com/user-attachments/assets/929d4f3d-52b2-4c4d-a849-ea56cad85463)
@@ -62,4 +61,4 @@ If the color you paint doesn't look like the color you choose in the color picke
 
 Shaders provided with the plugin were not made or tested by me for compatibility with this version of the plugin.
 
-There might be some non critical errors as well. 
+There might be some non critical errors as well. Any critical bugs - open an issue case.
