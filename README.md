@@ -47,7 +47,7 @@ Color channels. Handy to set pure color channels for texture blending. W is whit
 
 Pressure settings are useful only to tablet users. Make sure to enable the correct driver in `Project settings > Pen Tablet` section for pressure to work. If you can't find that setting enable Advanced settings.
 
-![image](https://github.com/user-attachments/assets/c7ee37b6-0760-4b70-8846-3882b43248c3)
+![image](https://github.com/user-attachments/assets/6fd45843-d692-414a-ae98-e866590b3662)
 
 Undo Tool - removes the last applied tool. Useful if you want to start over.
 
