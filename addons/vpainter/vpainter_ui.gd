@@ -11,9 +11,13 @@ var undo_redo_manager : EditorUndoRedoManager
 @export var local_copy_button_path:NodePath
 var local_copy_button:Button
 
-#UNDO LAST BUTTON
-@export var undo_last_button_path:NodePath
-var undo_last_button:Button
+#UNDO LAST ACTION BUTTON
+@export var undo_action_button_path:NodePath
+var undo_action_button:Button
+
+#UNDO LAST TOOL BUTTON
+@export var undo_tool_button_path:NodePath
+var undo_tool_button:Button
 
 #COLOR PICKER:
 @export var color_picker_dir:NodePath
@@ -89,8 +93,11 @@ func _enter_tree():
 	local_copy_button = get_node(local_copy_button_path)
 	local_copy_button.button_down.connect(_make_local_copy)
 	
-	undo_last_button = get_node(undo_last_button_path)
-	undo_last_button.button_down.connect(_undo_last)
+	undo_action_button = get_node(undo_action_button_path)
+	undo_action_button.button_down.connect(_undo_last_action)
+	
+	undo_tool_button = get_node(undo_tool_button_path)
+	undo_tool_button.button_down.connect(_undo_last_tool)
 	
 	color_picker = get_node(color_picker_dir)
 	color_picker.connect("color_changed", self._set_paint_color)	
@@ -154,8 +161,10 @@ func _enter_tree():
 func _exit_tree():
 	local_copy_button = get_node(local_copy_button_path)
 	local_copy_button.button_down.disconnect(_make_local_copy)
-	undo_last_button = get_node(undo_last_button_path)
-	undo_last_button.button_down.disconnect(_undo_last)
+	undo_action_button = get_node(undo_action_button_path)
+	undo_action_button.button_down.disconnect(_undo_last_action)
+	undo_tool_button = get_node(undo_tool_button_path)
+	undo_tool_button.button_down.disconnect(_undo_last_tool)
 	color_picker = get_node(color_picker_dir)
 	color_picker.disconnect("color_changed", self._set_paint_color)
 	channel_white = get_node(channel_white_dir)
@@ -202,9 +211,11 @@ func _exit_tree():
 func _make_local_copy():
 	vpainter._make_local_copy()
 
-func _undo_last():
-	vpainter._undo_last()
+func _undo_last_action():
+	vpainter._undo_last_action()
 
+func _undo_last_tool():
+	vpainter._undo_last_tool()
 
 func _set_paint_color(value):
 	channel_white.button_pressed = false
@@ -297,10 +308,12 @@ func _set_size_pressure(value):
 	vpainter.pressure_size = value
 
 func _set_paint_tool(value):
+	vpainter.undoable = true #Enable tool undo
 	vpainter.brush_size = brush_size_slider.value
 	if value:
 		vpainter.current_tool = "_paint_tool"
-		pen_pressure_settings.visible = true
+		button_opacity_pressure.disabled = false
+		button_size_pressure.disabled = false
 		blend_modes.visible = true
 
 		button_paint.set_pressed(true)
@@ -311,29 +324,20 @@ func _set_paint_tool(value):
 func _set_sample_tool(value):
 	if value:
 		vpainter.current_tool = "_sample_tool"
-		pen_pressure_settings.visible = false
-		blend_modes.visible = false
+		button_opacity_pressure.disabled = true
+		button_size_pressure.disabled = true
 		
 		button_paint.set_pressed(false)
 		button_sample.set_pressed(true)
 		button_displace.set_pressed(false)
 		button_fill.set_pressed(false)
 
-func _set_blur_tool(value):
-	if value:
-		vpainter.current_tool = "_blur_tool"
-		pen_pressure_settings.visible = false
-		blend_modes.visible = false
-		
-		button_paint.set_pressed(false)
-		button_sample.set_pressed(false)
-		button_displace.set_pressed(false)
-		button_fill.set_pressed(false)
-
 func _set_displace_tool(value):
+	vpainter.undoable = true #Enable tool undo
 	if value:
 		vpainter.current_tool = "_displace_tool"
-		pen_pressure_settings.visible = true
+		button_opacity_pressure.disabled = false
+		button_size_pressure.disabled = false
 		blend_modes.visible = false
 		
 		button_paint.set_pressed(false)
@@ -342,9 +346,11 @@ func _set_displace_tool(value):
 		button_fill.set_pressed(false)
 
 func _set_fill_tool(value):
+	vpainter.undoable = true #Enable tool undo
 	if value:
 		vpainter.current_tool = "_fill_tool"
-		pen_pressure_settings.visible = false
+		button_opacity_pressure.disabled = true
+		button_size_pressure.disabled = true
 		blend_modes.visible = true
 
 		button_paint.set_pressed(false)
@@ -353,7 +359,6 @@ func _set_fill_tool(value):
 		button_fill.set_pressed(true)
 
 func _set_brush_size(value):
-	var camera:Node
 	brush_size_slider.value = value
 	brush_size_spinbox.value = brush_size_slider.value
 	vpainter.brush_size = value

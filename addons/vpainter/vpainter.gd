@@ -48,12 +48,12 @@ var brush_spacing:float = 0.1
 
 var current_mesh:MeshInstance3D
 var data:MeshDataTool = MeshDataTool.new()
-var undo_data:MeshDataTool = MeshDataTool.new()
-var is_undo_data_set:bool = false
+var undo_action:MeshDataTool = MeshDataTool.new()
+var undo_tool:MeshDataTool = MeshDataTool.new()
+var is_undo_action_set:bool = false
 var undo_redo
 var undone:bool
-var mesh_format
-var mesh_format_set:bool
+var undoable:bool = true
 var editable_object:bool = false
 
 var raycast_hit:bool = false
@@ -84,15 +84,12 @@ func _forward_3d_gui_input(camera, event) -> int:
 func _user_input(event) -> bool:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.is_pressed():
-			if !mesh_format_set:
-				mesh_format = current_mesh.mesh.surface_get_format(0)
-				mesh_format_set = true
 			process_drawing = true
 			_process_drawing()
 			return true
 		else:
 			process_drawing = false
-			is_undo_data_set = false
+			is_undo_action_set = false
 			_set_collision()
 			return false
 
@@ -119,12 +116,18 @@ func _user_input(event) -> bool:
 		#
 		return false
 
-func _undo_last():
+func _undo_last_tool():
+	current_mesh.mesh.clear_surfaces()
+	undo_tool.commit_to_surface(current_mesh.mesh, 0)
+	undoable = true
+	ui_sidebar.undo_tool_button.disabled = true
+
+func _undo_last_action():
 	if !undone:
 		current_mesh.mesh.clear_surfaces()
-		undo_data.commit_to_surface(current_mesh.mesh, mesh_format)
+		undo_action.commit_to_surface(current_mesh.mesh, 0)
 		undone = true
-		ui_sidebar.undo_last_button.disabled = true
+		ui_sidebar.undo_action_button.disabled = true
 
 func _process_drawing():
 	while process_drawing:
@@ -187,11 +190,18 @@ func _raycast(camera:Node, event:InputEvent) -> void:
 
 func _paint_tool() -> void:
 	data.create_from_surface(current_mesh.mesh, 0)
-	if !is_undo_data_set:
-		undo_data.create_from_surface(current_mesh.mesh, 0)
-		is_undo_data_set = true
+	
+	if !is_undo_action_set: #Allows to store mesh data only ones per stroke, instead of every frame. 
+		undo_action.create_from_surface(current_mesh.mesh, 0)
+		is_undo_action_set = true
 		undone = false
-		ui_sidebar.undo_last_button.disabled = false
+		ui_sidebar.undo_action_button.disabled = false
+		
+	if undoable: #Set in vpainter_ui.gd. Selecting a tool enables storing mesh data
+		undo_tool.create_from_surface(current_mesh.mesh, 0)
+		ui_sidebar.undo_tool_button.disabled = false
+		undoable = false
+		
 	for i in range(data.get_vertex_count()):
 		var vertex = current_mesh.to_global(data.get_vertex(i))
 		var vertex_distance:float = vertex.distance_to(hit_position)
@@ -212,15 +222,22 @@ func _paint_tool() -> void:
 					data.set_vertex_color(i, data.get_vertex_color(i).lerp(data.get_vertex_color(i) / paint_color, calculated_opacity * calculated_hardness))
 	
 	current_mesh.mesh.clear_surfaces()
-	data.commit_to_surface(current_mesh.mesh, mesh_format)
+	data.commit_to_surface(current_mesh.mesh, 0)
 
 func _displace_tool() -> void:
 	data.create_from_surface(current_mesh.mesh, 0)
-	if !is_undo_data_set:
-		undo_data.create_from_surface(current_mesh.mesh, 0)
-		is_undo_data_set = true
+	
+	if !is_undo_action_set: #Allows to store mesh data only ones per stroke, instead of every frame.
+		undo_action.create_from_surface(current_mesh.mesh, 0)
+		is_undo_action_set = true
 		undone = false
-		ui_sidebar.undo_last_button.disabled = false
+		ui_sidebar.undo_action_button.disabled = false
+		
+	if undoable: #Set in vpainter_ui.gd. Selecting a tool enables storing mesh data
+		undo_tool.create_from_surface(current_mesh.mesh, 0)
+		ui_sidebar.undo_tool_button.disabled = false
+		undoable = false
+		
 	for i in range(data.get_vertex_count()):
 		var vertex = current_mesh.to_global(data.get_vertex(i))
 		var vertex_distance:float = vertex.distance_to(hit_position)
@@ -235,16 +252,23 @@ func _displace_tool() -> void:
 				data.set_vertex(i, data.get_vertex(i) - hit_normal * calculated_opacity * calculated_hardness)
 	
 	current_mesh.mesh.clear_surfaces()
-	data.commit_to_surface(current_mesh.mesh, mesh_format)
+	data.commit_to_surface(current_mesh.mesh, 0)
 		
 
 func _fill_tool() -> void:
 	data.create_from_surface(current_mesh.mesh, 0)
-	if !is_undo_data_set:
-		undo_data.create_from_surface(current_mesh.mesh, 0)
-		is_undo_data_set = true
+	
+	if !is_undo_action_set: #Allows to store mesh data only ones per stroke, instead of every frame.
+		undo_action.create_from_surface(current_mesh.mesh, 0)
+		is_undo_action_set = true
 		undone = false
-		ui_sidebar.undo_last_button.disabled = false
+		ui_sidebar.undo_action_button.disabled = false
+		
+	if undoable: #Set in vpainter_ui.gd. Selecting a tool enables storing mesh data
+		undo_tool.create_from_surface(current_mesh.mesh, 0)
+		ui_sidebar.undo_tool_button.disabled = false
+		undoable = false
+		
 	for i in range(data.get_vertex_count()):
 		var vertex = data.get_vertex(i)
 		
@@ -261,7 +285,7 @@ func _fill_tool() -> void:
 				data.set_vertex_color(i, data.get_vertex_color(i).lerp(data.get_vertex_color(i) / paint_color, brush_opacity))
 
 	current_mesh.mesh.clear_surfaces()
-	data.commit_to_surface(current_mesh.mesh, mesh_format)
+	data.commit_to_surface(current_mesh.mesh, 0)
 	process_drawing = false
 
 func _sample_tool() -> void:
@@ -322,8 +346,8 @@ func _make_local_copy() -> void:
 	current_mesh.mesh = current_mesh.mesh.duplicate(false)
 
 func _selection_changed() -> void:
-	ui_activate_button._set_ui_sidebar(false)
-	ui_sidebar.undo_last_button.disabled = true
+	#ui_activate_button._set_ui_sidebar(false)
+	ui_sidebar.undo_action_button.disabled = true
 	var selection = get_editor_interface().get_selection().get_selected_nodes()
 	if selection.size() == 1 and selection[0] is MeshInstance3D:
 		current_mesh = selection[0]

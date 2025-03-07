@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cktalcyd4egp1"
-path="res://.godot/imported/icon_vpainter.svg-ce4bf77567878f7bc85453b8d60daedb.ctex"
+uid="uid://np8i1by6kuh5"
+path="res://.godot/imported/icon_undo_tool.svg-51a0cb85c4df7fdaf3bd389454daecce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/vpainter/res/icons/icon_vpainter.svg"
-dest_files=["res://.godot/imported/icon_vpainter.svg-ce4bf77567878f7bc85453b8d60daedb.ctex"]
+source_file="res://addons/vpainter/res/icons/icon_undo_tool.svg"
+dest_files=["res://.godot/imported/icon_undo_tool.svg-51a0cb85c4df7fdaf3bd389454daecce.ctex"]
 
 [params]
 
