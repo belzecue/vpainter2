@@ -58,7 +58,7 @@ Undo Action - removes the last action. Useful if you filled the mesh with color 
 ## Troubleshooting
 To hide transform gizmo on a node so it doesn't get in your way whilst painting, lock the node by pressing the Lock icon and reselect the node in scene tree.
 
-If you see UID warnings in the output. Disable the plugin in the Project settings, Save All Scenes, Reload current project and re-enable the plugin. These warnings are not critical.
+If you see UID warnings in the output. Disable the plugin in the Project settings, Save All Scenes, Project -> Tools -> Upgrade UIDs... and re-enable the plugin. Repeat if the warnings don't go away first time.
 
 Using Displace tool produces Ghost geometry. This seems like a bug with the engine, needs more research. The problem is resolved by single click with paint tool.
 
