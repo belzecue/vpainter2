@@ -45,21 +45,21 @@ Color channels. Handy to set pure color channels for texture blending. W is whit
 
 ![image](https://github.com/user-attachments/assets/e5c59c0b-a387-41f8-ac68-ee9979e971a9)
 
-Pressure settings are useful only to tablet users. Make sure to enable the correct driver in `Project settings > Pen Tablet` section for pressure to work. If you can't find that setting enble Advanced settings.
+Pressure settings are useful only to tablet users. Make sure to enable the correct driver in `Project settings > Pen Tablet` section for pressure to work. If you can't find that setting enable Advanced settings.
 
 
 ![image](https://github.com/user-attachments/assets/8b93f701-78c2-4ad2-8657-b14593a7faf7)
 
-The plugin currently only has single undo feature. It is fake and doesn't use the editors undo manager, but instead saves current state of the mesh into a variable and sets it back if needed. Useful if you made a mistake such as filling the mesh with color you didn't want, or displacing the vertices too much.
+The plugin currently has only single undo feature. It is fake and doesn't use the editors undo manager, but instead saves current state of the mesh into a variable and sets it back if needed. Useful if you made a mistake such as filling the mesh with color you didn't want, or displacing the vertices too much.
 
 ## Troubleshooting
 To hide transform gizmo on a node so it doesn't get in your way whilst painting, lock the node by pressing the Lock icon and reselect the node in scene tree.
 
-If you see UID warnings in the output. Disable the plugin in the Project settings, Save All Scenes and Reload current project. 
+If you see UID warnings in the output. Disable the plugin in the Project settings, Save All Scenes, Reload current project and re-enable the plugin. These warnings are not critical.
 
 If you don't see Alpha on your mesh double check that you have transparency enabled in the material.
 
-If the color you paint doesn't look like the color you choose in the color picker, make sure you checked sRGB color space in the material's Vertex color section. In this case the colors painted are actully correct, they just displayed in a different color space. Does not affect texture blending.
+If the color you paint doesn't look like the color you chose in the color picker, make sure you checked sRGB color space in the material's Vertex color settings. In this case the colors painted are actully correct, they're just displayed in a different color space. Does not affect texture blending.
 
 Shaders provided with the plugin were not made or tested by me for compatibility with this version of the plugin.
 
