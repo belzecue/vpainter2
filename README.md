@@ -51,7 +51,7 @@ Pressure settings are useful only to tablet users. Make sure to enable the corre
 
 Undo Tool - removes the last applied tool. Useful if you want to start over.
 
-![image](https://github.com/user-attachments/assets/8b93f701-78c2-4ad2-8657-b14593a7faf7)
+![image](https://github.com/user-attachments/assets/06a1bec7-006e-4ca0-b832-517f9a938830)
 
 Undo Action - removes the last action. Useful if you filled the mesh with color you didn't want or displaced vertices too far.
 
