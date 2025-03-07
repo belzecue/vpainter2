@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://o2o5o4oiself"]
 
-[ext_resource type="Script" uid="uid://b11ievsl6xoel" path="res://addons/vpainter/res/brush_cursor/brush_cursor.gd" id="2_mhe0t"]
+[ext_resource type="Script" uid="uid://ckgc0vay8jcej" path="res://addons/vpainter/res/brush_cursor/brush_cursor.gd" id="2_mhe0t"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_7rgx8"]
 bottom_radius = 0.664671

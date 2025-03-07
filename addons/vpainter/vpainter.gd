@@ -346,6 +346,7 @@ func _make_local_copy() -> void:
 	current_mesh.mesh = current_mesh.mesh.duplicate(false)
 
 func _selection_changed() -> void:
+	ui_sidebar.undo_tool_button.disabled = true
 	#ui_activate_button._set_ui_sidebar(false)
 	ui_sidebar.undo_action_button.disabled = true
 	var selection = get_editor_interface().get_selection().get_selected_nodes()

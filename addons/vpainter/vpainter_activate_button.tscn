@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b6lbpdtsme7s7"]
 
 [ext_resource type="Texture2D" uid="uid://cktalcyd4egp1" path="res://addons/vpainter/res/icons/icon_vpainter.svg" id="1"]
-[ext_resource type="Script" uid="uid://5d8tdp7uif4a" path="res://addons/vpainter/vpainter_activate_button.gd" id="1_ebqmv"]
+[ext_resource type="Script" uid="uid://c1qwaxspmf2pb" path="res://addons/vpainter/vpainter_activate_button.gd" id="1_ebqmv"]
 
 [node name="ui_activate_button" type="Control"]
 layout_mode = 3
