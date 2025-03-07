@@ -26,7 +26,7 @@ Plugin does not work with built-in meshes, only with imported from outside. Howe
 ## Usage
 ![image](https://github.com/user-attachments/assets/929d4f3d-52b2-4c4d-a849-ea56cad85463)
 
-By default the tool will save all changes into the original resource when the scene is saved. If you have multiple identical meshes that you want to paint differently you need to select the mesh and press Local Copy. This copy will be local to that particular scene and the original resource will not be affected. Local copy can then be saved into a new resorce if it needs to be shared between scenes.
+By default the tool will save all changes into the original resource when the scene is saved. If you have multiple identical meshes that you want to paint differently you need to select the mesh and press Local Copy. This copy will be local to that particular scene and the original resource will not be affected. Local copy can then be saved into a new resource if it needs to be shared between scenes.
 
 
 ![image](https://github.com/user-attachments/assets/7a2391d9-ea87-4374-a1e5-602ba8e0c28c)
