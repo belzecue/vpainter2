@@ -60,6 +60,8 @@ To hide transform gizmo on a node so it doesn't get in your way whilst painting,
 
 If you see UID warnings in the output. Disable the plugin in the Project settings, Save All Scenes, Reload current project and re-enable the plugin. These warnings are not critical.
 
+Using Displace tool produces Ghost geometry. This seems like a bug with the engine, needs more research. The problem is resolved by single click with paint tool.
+
 If you don't see Alpha on your mesh double check that you have transparency enabled in the material.
 
 If the color you paint doesn't look like the color you chose in the color picker, make sure you checked sRGB color space in the material's Vertex color settings. In this case the colors painted are actully correct, they're just displayed in a different color space. Does not affect texture blending.
