@@ -47,10 +47,13 @@ Color channels. Handy to set pure color channels for texture blending. W is whit
 
 Pressure settings are useful only to tablet users. Make sure to enable the correct driver in `Project settings > Pen Tablet` section for pressure to work. If you can't find that setting enable Advanced settings.
 
+![image](https://github.com/user-attachments/assets/c7ee37b6-0760-4b70-8846-3882b43248c3)
+
+Undo Tool - removes the last applied tool. Useful if you want to start over.
 
 ![image](https://github.com/user-attachments/assets/8b93f701-78c2-4ad2-8657-b14593a7faf7)
 
-The plugin currently has only single undo feature. It is fake and doesn't use the editors undo manager, but instead saves current state of the mesh into a variable and sets it back if needed. Useful if you made a mistake such as filling the mesh with color you didn't want, or displacing the vertices too much.
+Undo Action - removes the last action. Useful if you filled the mesh with color you didn't want or displaced vertices too far.
 
 ## Troubleshooting
 To hide transform gizmo on a node so it doesn't get in your way whilst painting, lock the node by pressing the Lock icon and reselect the node in scene tree.
