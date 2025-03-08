@@ -3,22 +3,25 @@
 [ext_resource type="Script" uid="uid://ckgc0vay8jcej" path="res://addons/vpainter/res/brush_cursor/brush_cursor.gd" id="2_mhe0t"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_7rgx8"]
-bottom_radius = 0.664671
+top_radius = 1.731
+bottom_radius = 1.82418
 height = 0.001
 rings = 0
 cap_top = false
 cap_bottom = false
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwvgv"]
-transparency = 1
 blend_mode = 3
+depth_draw_mode = 1
 shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
 albedo_color = Color(0.695503, 0.695503, 0.695503, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_mnj8d"]
 flip_faces = true
-top_radius = 0.664671
-bottom_radius = 0.664671
+top_radius = 1.23564
+bottom_radius = 1.20396
 height = 0.001
 cap_top = false
 cap_bottom = false
